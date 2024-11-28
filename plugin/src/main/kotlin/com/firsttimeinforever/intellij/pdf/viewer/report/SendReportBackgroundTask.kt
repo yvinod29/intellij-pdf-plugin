@@ -1,6 +1,6 @@
 package com.firsttimeinforever.intellij.pdf.viewer.report
 
-import com.firsttimeinforever.intellij.pdf.viewer.PdfViewerBundle
+import com.firsttimeinforever.intellij.pdf.viewer.MyBundle
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
@@ -20,7 +20,7 @@ internal class SendReportBackgroundTask(
   project: Project?,
   private val event: EventBuilder,
   private val consumer: Consumer<in SubmittedReportInfo>
-) : Task.Backgroundable(project, PdfViewerBundle.message("pdf.viewer.error.report.sending")) {
+) : Task.Backgroundable(project, MyBundle.message("pdf.viewer.error.report.sending")) {
   override fun run(indicator: ProgressIndicator) {
     sentryClient.sendEvent(event)
     sentryClient.addEventSendCallback(object : EventSendCallback {
@@ -28,7 +28,7 @@ internal class SendReportBackgroundTask(
         ApplicationManager.getApplication().invokeLater {
           val group = NotificationGroupManager.getInstance().getNotificationGroup("Error Report")
           group.createNotification(
-            PdfViewerBundle.message("pdf.viewer.error.report.notifications.submit.success"),
+            MyBundle.message("pdf.viewer.error.report.notifications.submit.success"),
             NotificationType.INFORMATION
           ).notify(project)
           consumer.consume(SubmittedReportInfo(SubmittedReportInfo.SubmissionStatus.NEW_ISSUE))
@@ -39,7 +39,7 @@ internal class SendReportBackgroundTask(
         ApplicationManager.getApplication().invokeLater {
           val group = NotificationGroupManager.getInstance().getNotificationGroup("Error Report")
           group.createNotification(
-            PdfViewerBundle.message("pdf.viewer.error.report.notifications.submit.failed"),
+            MyBundle.message("pdf.viewer.error.report.notifications.submit.failed"),
             NotificationType.ERROR
           ).notify(project)
           thisLogger().error(exception.toString())

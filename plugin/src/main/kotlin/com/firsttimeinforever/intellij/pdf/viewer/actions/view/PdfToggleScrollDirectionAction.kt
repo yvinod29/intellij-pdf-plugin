@@ -1,6 +1,6 @@
 package com.firsttimeinforever.intellij.pdf.viewer.actions.view
 
-import com.firsttimeinforever.intellij.pdf.viewer.PdfViewerBundle
+import com.firsttimeinforever.intellij.pdf.viewer.MyBundle
 import com.firsttimeinforever.intellij.pdf.viewer.actions.PdfDumbAwareAction
 import com.firsttimeinforever.intellij.pdf.viewer.model.PageSpreadState
 import com.firsttimeinforever.intellij.pdf.viewer.model.ScrollDirection
@@ -38,9 +38,9 @@ class PdfToggleScrollDirectionAction : PdfDumbAwareAction() {
   }
 
   private companion object {
-    val VERTICAL_TEXT = PdfViewerBundle.message("pdf.viewer.actions.pdfjs.set.vertical.scrolling.name")
-    val VERTICAL_DESCRIPTION = PdfViewerBundle.message("pdf.viewer.actions.pdfjs.set.vertical.scrolling.description")
-    val HORIZONTAL_TEXT = PdfViewerBundle.message("pdf.viewer.actions.pdfjs.set.horizontal.scrolling.name")
-    val HORIZONTAL_DESCRIPTION = PdfViewerBundle.message("pdf.viewer.actions.pdfjs.set.horizontal.scrolling.description")
+    val VERTICAL_TEXT = MyBundle.message("pdf.viewer.actions.pdfjs.set.vertical.scrolling.name")
+    val VERTICAL_DESCRIPTION = MyBundle.message("pdf.viewer.actions.pdfjs.set.vertical.scrolling.description")
+    val HORIZONTAL_TEXT = MyBundle.message("pdf.viewer.actions.pdfjs.set.horizontal.scrolling.name")
+    val HORIZONTAL_DESCRIPTION = MyBundle.message("pdf.viewer.actions.pdfjs.set.horizontal.scrolling.description")
   }
 }

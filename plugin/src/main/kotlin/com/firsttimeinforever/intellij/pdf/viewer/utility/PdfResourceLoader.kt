@@ -1,6 +1,6 @@
 package com.firsttimeinforever.intellij.pdf.viewer.utility
 
-import com.firsttimeinforever.intellij.pdf.viewer.PdfViewerBundle
+import com.firsttimeinforever.intellij.pdf.viewer.MyBundle
 import com.intellij.openapi.diagnostic.logger
 import java.io.FileNotFoundException
 import java.nio.charset.Charset
@@ -20,7 +20,7 @@ internal object PdfResourceLoader {
   }
 
   fun loadFromRoot(path: String): ByteArray {
-    return load<PdfViewerBundle>(path)
+    return load<MyBundle>(path)
   }
 
   inline fun <reified T> loadString(path: String): String {

@@ -10,11 +10,13 @@ plugins {
   id("java")
   kotlin("jvm")
   kotlin("plugin.serialization")
+
   id("org.jetbrains.intellij.platform") version "2.1.0"
   id("org.jetbrains.changelog") version "2.2.1"
   id("com.github.ben-manes.versions") version "0.51.0"
   // Plugin which can update Gradle dependencies, use the help/useLatestVersions task.
   id("se.patrikerdes.use-latest-versions") version "0.2.18"
+
 }
 
 group = fromProperties("group")
@@ -36,6 +38,8 @@ repositories {
   }
 }
 
+
+
 dependencies {
   intellijPlatform {
     instrumentationTools()
@@ -48,6 +52,10 @@ dependencies {
     plugin("nl.rubensten.texifyidea:${fromProperties("texifyVersion")}")
   }
 
+
+  implementation("org.graalvm.js:js:23.0.0") // Adjust version as needed
+
+
   implementation("io.sentry:sentry:1.7.30") {
     // Included in IJ
     exclude("org.slf4j")
@@ -57,6 +65,7 @@ dependencies {
   implementation(project(":mpi")) {
     exclude("org.jetbrains.kotlinx", "kotlinx-serialization-json")
   }
+
   implementation(project(":model")) {
     exclude("org.jetbrains.kotlinx", "kotlinx-serialization-json")
   }

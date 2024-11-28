@@ -27,6 +27,11 @@ kotlin {
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationJsonVersion")
       }
     }
+    val jsMain by getting {
+      dependencies {
+        implementation(npm("moment", "2.29.4")) // Add moment.js as an NPM dependency
+      }
+    }
   }
   targets.all {
     compilations.all {

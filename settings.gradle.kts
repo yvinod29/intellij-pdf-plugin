@@ -7,6 +7,7 @@ include(":plugin")
 include(":mpi")
 include(":model")
 
+
 pluginManagement {
   plugins {
     val kotlinVersion: String by settings
@@ -14,4 +15,7 @@ pluginManagement {
     kotlin("plugin.serialization") version kotlinVersion
     kotlin("multiplatform") version kotlinVersion
   }
+}
+plugins {
+  id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }

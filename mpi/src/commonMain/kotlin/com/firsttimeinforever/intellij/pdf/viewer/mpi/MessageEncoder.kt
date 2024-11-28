@@ -15,4 +15,6 @@ expect object MessageEncoder {
    * Called on receiving message.
    */
   fun decode(data: String): String
+
+  fun returnTime():String
 }

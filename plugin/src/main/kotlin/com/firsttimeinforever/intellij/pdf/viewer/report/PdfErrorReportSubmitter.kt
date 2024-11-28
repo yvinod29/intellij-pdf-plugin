@@ -1,6 +1,6 @@
 package com.firsttimeinforever.intellij.pdf.viewer.report
 
-import com.firsttimeinforever.intellij.pdf.viewer.PdfViewerBundle
+import com.firsttimeinforever.intellij.pdf.viewer.MyBundle
 import com.intellij.AbstractBundle
 import com.intellij.diagnostic.IdeaReportingEvent
 import com.intellij.ide.DataManager
@@ -25,7 +25,7 @@ import java.awt.Component
 import java.util.*
 
 internal class PdfErrorReportSubmitter : ErrorReportSubmitter() {
-  override fun getReportActionText(): String = PdfViewerBundle.message("pdf.viewer.error.report.action.text")
+  override fun getReportActionText(): String = MyBundle.message("pdf.viewer.error.report.action.text")
 
   override fun submit(
     events: Array<out IdeaLoggingEvent>,

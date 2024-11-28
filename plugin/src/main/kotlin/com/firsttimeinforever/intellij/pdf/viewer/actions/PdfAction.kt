@@ -1,6 +1,6 @@
 package com.firsttimeinforever.intellij.pdf.viewer.actions
 
-import com.firsttimeinforever.intellij.pdf.viewer.PdfViewerBundle
+import com.firsttimeinforever.intellij.pdf.viewer.MyBundle
 import com.firsttimeinforever.intellij.pdf.viewer.ui.editor.PdfFileEditor
 import com.firsttimeinforever.intellij.pdf.viewer.ui.editor.view.PdfJcefPreviewController
 import com.intellij.ide.ui.UISettings
@@ -74,9 +74,9 @@ abstract class PdfAction(protected val viewModeAwareness: ViewModeAwareness = Vi
     fun showUnsupportedActionNotification(event: AnActionEvent) {
       Notifications.Bus.notify(
         Notification(
-          PdfViewerBundle.message("pdf.viewer.notifications.group.id"),
-          PdfViewerBundle.message("pdf.viewer.actions.pdfjs.notifications.usupported.action.title"),
-          PdfViewerBundle.message(
+          MyBundle.message("pdf.viewer.notifications.group.id"),
+          MyBundle.message("pdf.viewer.actions.pdfjs.notifications.usupported.action.title"),
+          MyBundle.message(
             "pdf.viewer.actions.pdfjs.notifications.unsupported.action.content",
             event.presentation.text
           ),

@@ -1,6 +1,6 @@
 package com.firsttimeinforever.intellij.pdf.viewer.settings
 
-import com.firsttimeinforever.intellij.pdf.viewer.PdfViewerBundle
+import com.firsttimeinforever.intellij.pdf.viewer.MyBundle
 import com.firsttimeinforever.intellij.pdf.viewer.model.SidebarViewMode
 import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.observable.properties.PropertyGraph
@@ -23,12 +23,12 @@ class PdfViewerSettingsForm : JPanel() {
   val defaultSidebarViewMode = properties.property(settings.defaultSidebarViewMode)
 
   private val generalSettingsGroup = panel {
-    group(PdfViewerBundle.message("pdf.viewer.settings.group.general")) {
+    group(MyBundle.message("pdf.viewer.settings.group.general")) {
       row {
-        checkBox(PdfViewerBundle.message("pdf.viewer.settings.reload.document"))
+        checkBox(MyBundle.message("pdf.viewer.settings.reload.document"))
           .bindSelected(enableDocumentAutoReload)
       }
-      row(PdfViewerBundle.message("pdf.viewer.settings.sidebar.viewer.default")) {
+      row(MyBundle.message("pdf.viewer.settings.sidebar.viewer.default")) {
         val renderer = SimpleListCellRenderer.create<SidebarViewMode> { label, value, _ ->
           label.text = when (value) {
             SidebarViewMode.NONE -> "Closed"
@@ -54,21 +54,21 @@ class PdfViewerSettingsForm : JPanel() {
   val documentColorsInvertIntensity = properties.property(settings.documentColorsInvertIntensity)
 
   private val invertColorsGroup = panel {
-    group(PdfViewerBundle.message("pdf.viewer.settings.group.colors.document")) {
+    group(MyBundle.message("pdf.viewer.settings.group.colors.document")) {
       row {
-        checkBox(PdfViewerBundle.message("pdf.viewer.settings.colors.document.with.theme"))
+        checkBox(MyBundle.message("pdf.viewer.settings.colors.document.with.theme"))
           .bindSelected(invertDocumentColorsWithTheme)
-          .comment(PdfViewerBundle.message("pdf.viewer.settings.colors.document.with.theme.comment"))
+          .comment(MyBundle.message("pdf.viewer.settings.colors.document.with.theme.comment"))
       }
       row {
-        checkBox(PdfViewerBundle.message("pdf.viewer.settings.colors.document.invert"))
+        checkBox(MyBundle.message("pdf.viewer.settings.colors.document.invert"))
           .bindSelected(invertDocumentColors)
           .enabledIf(invertDocumentColorsWithTheme.not())
       }
-      row(PdfViewerBundle.message("pdf.viewer.settings.colors.document.invert.intensity")) {
+      row(MyBundle.message("pdf.viewer.settings.colors.document.invert.intensity")) {
         intTextField(1..100, 1)
           .bindIntText(documentColorsInvertIntensity)
-        rowComment(PdfViewerBundle.message("pdf.viewer.settings.colors.document.invert.intensity.comment"))
+        rowComment(MyBundle.message("pdf.viewer.settings.colors.document.invert.intensity.comment"))
       }
     }
   }
@@ -96,26 +96,26 @@ class PdfViewerSettingsForm : JPanel() {
   }
 
   private val customColorsGroup = panel {
-    group(PdfViewerBundle.message("pdf.viewer.settings.group.colors.viewer")) {
+    group(MyBundle.message("pdf.viewer.settings.group.colors.viewer")) {
       row {
-        checkBox(PdfViewerBundle.message("pdf.viewer.settings.viewer.colors"))
+        checkBox(MyBundle.message("pdf.viewer.settings.viewer.colors"))
           .bindSelected(useCustomColors)
-          .comment(PdfViewerBundle.message("pdf.viewer.settings.group.colors.viewer.comment"))
+          .comment(MyBundle.message("pdf.viewer.settings.group.colors.viewer.comment"))
       }
       indent {
           panel {
-            row(PdfViewerBundle.message("pdf.viewer.settings.foreground")) {
+            row(MyBundle.message("pdf.viewer.settings.foreground")) {
               cell(foregroundColorPanel)
             }
-            row(PdfViewerBundle.message("pdf.viewer.settings.background")) {
+            row(MyBundle.message("pdf.viewer.settings.background")) {
               cell(backgroundColorPanel)
             }
-            row(PdfViewerBundle.message("pdf.viewer.settings.icons")) {
+            row(MyBundle.message("pdf.viewer.settings.icons")) {
               cell(iconColorPanel)
-              rowComment(PdfViewerBundle.message("pdf.viewer.settings.icons.color.notice"))
+              rowComment(MyBundle.message("pdf.viewer.settings.icons.color.notice"))
             }
             row {
-              link(PdfViewerBundle.message("pdf.viewer.settings.set.current.theme")) {
+              link(MyBundle.message("pdf.viewer.settings.set.current.theme")) {
                 resetViewerColorsToTheme()
               }
             }
